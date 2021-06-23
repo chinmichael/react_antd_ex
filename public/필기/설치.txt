@@ -1,0 +1,45 @@
+react-bootstrap 잘 쓰고 있다가 Ant Design???
+
+일단 다른건 아직 잘 모르겠지만 일단 반응형 그리드를 좀 더 세세하게 잡아줄 수 있다. (근데 기준치 이하 화면에서 자동으로 세로전환이 안되네;;)
+
+우선 설치
+npm install antd
+
+npm install --save @ant-design/icons
+
+아래는 AntD에서 자주 보이는 아이콘들을 사용하기 위한 라이브러리 설치임
+--save는 의존성 추가 설정 때문에 한건데 사실상 --save만 하면 default인 package.json의 dependencies에 등록하는 거기 때문에 빼도 거기서 거기다.
+(--no-save:의존성 등록 안함 / --save-dev: devDependencies에 등록 / --save-optional: optionalDependecies에 등록)
+
+설치를 하고 나면 이제 import를 한다
+부트스트랩과 거의 마찬가지인듯
+
+index.js에
+import 'antd/dist/antd.css'; 로 css 파일을 import 한 뒤,
+
+각 디자인을 사용하는 컴포넌트 파일에서
+
+import { Row, Col, Layout } from 'antd';
+import { } from '@ant-design/icons';
+
+이렇게 각 컴포넌트를 가져와 사용한다. (react-bootstrap처럼 각 컴포넌트 디자인이 컴포넌트화 되어 있음)
+
+이때 어차피 복붙할 코드를 보면 알겠지만
+
+const { Header, Sider } = Layout; 처럼 import한 컴포넌트 내부에서 가져오는 컴포넌트들이 또 있다.
+
+참고로 수정의 경우
+
+npm install styled-components 를 하여
+
+해당 컴포넌트 파일에서
+import styled from 'styled-components'; (참고로 antd 컴포넌트 보다 상단에 위치)
+
+const StyledLayout = styled(Layout)``; 이렇게 styled-component를 사용해도 되지만
+
+개인적으로 그냥 className 등의 셀렉터를 사용해서 scss 모듈화 하자
+
+
+
+=======================================================================================================================
+
